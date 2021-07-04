@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/nav_view_past_tournament"
+        android:icon="@drawable/ic_past_tournaments"
+        android:title="Past Tournaments" />
+
+    <item
+        android:id="@+id/nav_create_new_tournament"
+        android:icon="@drawable/ic_new_tournament_24"
+        android:title="New Tournament" />
+
+    <item
+        android:id="@+id/nav_view_data"
+        android:icon="@drawable/ic_data"
+        android:title="View Data" />
+
+
+</menu>

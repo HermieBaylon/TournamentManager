@@ -18,7 +18,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/tournament_name"
+        android:id="@+id/tournament_title"
         android:layout_width="300dp"
         android:layout_height="37dp"
         android:layout_marginStart="20dp"
@@ -29,7 +29,7 @@
         app:layout_constraintTop_toBottomOf="@+id/label_create_new_Tournament"></EditText>
 
     <EditText
-        android:id="@+id/tournament_name3"
+        android:id="@+id/tournament_year"
         android:layout_width="100dp"
         android:layout_height="37dp"
         android:layout_marginStart="20dp"
@@ -47,7 +47,7 @@
         android:layout_marginTop="12dp"
         android:textSize="45px"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tournament_name" />
+        app:layout_constraintTop_toBottomOf="@+id/tournament_title" />
 
     <EditText
         android:id="@+id/editTextTextMultiLine"
@@ -55,7 +55,7 @@
         android:layout_height="328dp"
         android:layout_marginStart="20dp"
         android:layout_marginTop="184dp"
-        android:background="#979797"
+        android:background="#E4E4E4"
         android:ems="10"
         android:gravity="start|top"
         android:hint="Enter player names..."

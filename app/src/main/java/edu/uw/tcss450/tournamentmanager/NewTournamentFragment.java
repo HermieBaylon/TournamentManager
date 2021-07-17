@@ -15,6 +15,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.SpinnerAdapter;
 import android.widget.TextView;
@@ -22,17 +24,16 @@ import android.widget.Toast;
 
 import java.lang.reflect.Array;
 import java.util.ArrayList;
-import java.util.List;
-
-//import edu.uw.tcss450.tournamentmanager.databinding.FragmentCreateNewTournamentBinding;
-//import edu.uw.tcss450.tournamentmanager.databinding.FragmentMenuBinding;
 
 /**
  * A simple {@link Fragment} subclass.
  */
 public class NewTournamentFragment extends Fragment {
     private Spinner categories;
-
+    private EditText tournamentTitle;
+    private EditText tournamentYear;
+    private Spinner tournamentCategory;
+    private Button addTournament;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -46,28 +47,30 @@ public class NewTournamentFragment extends Fragment {
         View rootView = inflater.inflate(R.layout.fragment_new_tournament, container, false);
         categories = rootView.findViewById(R.id.category);
         initspinnerfooter();
+        tournamentTitle = rootView.findViewById(R.id.tournament_title);
+        tournamentYear = rootView.findViewById(R.id.tournament_year);
+        tournamentCategory = (Spinner) rootView.findViewById(R.id.category);
+        addTournament = rootView.findViewById(R.id.btn_create_tournament);
+        addTournament.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                MyDatabaseHelper myDB = new MyDatabaseHelper(getActivity());
+                myDB.addTournament(Integer.valueOf(tournamentYear.getText().toString().trim()),
+                                   tournamentTitle.getText().toString().trim(),
+                                   tournamentCategory.getSelectedItem().toString().trim());
+            }
+        });
         return rootView;
     }
 
     private void initspinnerfooter() {
         ArrayList<String> categoryList = new ArrayList<>();
-        categoryList.add("Category 1");
-        categoryList.add("Category 2");
-        categoryList.add("Category 3");
+        categoryList.add("Categories");
+        categoryList.add("Pool");
+        categoryList.add("Boxing");
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_spinner_item, categoryList);
         categories.setAdapter(adapter);
-//        categories.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-//            @Override
-//            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-//                Log.v("item", (String) parent.getItemAtPosition(position));
-//                ((TextView) parent.getChildAt(0)).setTextColor(Color.WHITE);
-//            }
-//
-//            @Override
-//            public void onNothingSelected(AdapterView<?> parent) {
-//                // TODO Auto-generated method stub
-//            }
-//        });
     }
 
     @Override

@@ -34,6 +34,7 @@ public class NewTournamentFragment extends Fragment {
     private EditText tournamentYear;
     private Spinner tournamentCategory;
     private Button addTournament;
+    private Button updateTournament;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -51,8 +52,9 @@ public class NewTournamentFragment extends Fragment {
         tournamentYear = rootView.findViewById(R.id.tournament_year);
         tournamentCategory = (Spinner) rootView.findViewById(R.id.category);
         addTournament = rootView.findViewById(R.id.btn_create_tournament);
-        addTournament.setOnClickListener(new View.OnClickListener() {
+        updateTournament = rootView.findViewById(R.id.btn_update_tournament);
 
+        addTournament.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 MyDatabaseHelper myDB = new MyDatabaseHelper(getActivity());
@@ -61,6 +63,19 @@ public class NewTournamentFragment extends Fragment {
                                    tournamentCategory.getSelectedItem().toString().trim());
             }
         });
+
+        updateTournament.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                MyDatabaseHelper myDB = new MyDatabaseHelper(getActivity());
+                myDB.updateTournament(Integer.valueOf(tournamentYear.getText().toString().trim()),
+                                        tournamentTitle.getText().toString().trim(),
+                                        tournamentCategory.getSelectedItem().toString().trim());
+            }
+        });
+
+
+
         return rootView;
     }
 

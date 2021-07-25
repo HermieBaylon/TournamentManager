@@ -76,6 +76,21 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
         }
         return cursor;
     }
+
+    void updateTournament(int year, String name, String category) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues cv = new ContentValues();
+        cv.put(TOURNAMENT_YEAR, year);
+        cv.put(TOURNAMENT_NAME, name);
+        cv.put(TOURNAMENT_CATEGORY, category);
+
+        long result = db.update(TOURNAMENT_TABLE, cv, "TOURNAMENT_YEAR = ?", new String[] {""+year});
+        if (result == -1) {
+            Toast.makeText(context, "Failed to update", Toast.LENGTH_SHORT).show();
+        } else {
+            Toast.makeText(context, "Successfully updated", Toast.LENGTH_SHORT).show();
+        }
+    }
 }
 
 

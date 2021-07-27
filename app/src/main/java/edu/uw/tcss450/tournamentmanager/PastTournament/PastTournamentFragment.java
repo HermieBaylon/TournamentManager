@@ -1,4 +1,4 @@
-package edu.uw.tcss450.tournamentmanager;
+package edu.uw.tcss450.tournamentmanager.PastTournament;
 
 import android.database.Cursor;
 import android.os.Bundle;
@@ -14,6 +14,8 @@ import android.view.ViewGroup;
 import android.widget.Toast;
 
 import java.util.ArrayList;
+
+import edu.uw.tcss450.tournamentmanager.R;
 
 /**
  * A simple {@link Fragment} subclass.

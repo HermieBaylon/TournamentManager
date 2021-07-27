@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="@android:color/darker_gray"
-    tools:context=".PastTournamentFragment">
+    tools:context=".PastTournament.PastTournamentFragment">
 
     <TextView
         android:id="@+id/lbl_past_tournaments"

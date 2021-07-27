@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".NewTournamentFragment">
+    tools:context=".PastTournament.NewTournamentFragment">
 
     <TextView
         android:id="@+id/label_create_new_Tournament"
@@ -50,7 +50,7 @@
         app:layout_constraintTop_toBottomOf="@+id/tournament_title" />
 
     <EditText
-        android:id="@+id/editTextTextMultiLine"
+        android:id="@+id/players_txt"
         android:layout_width="344dp"
         android:layout_height="328dp"
         android:layout_marginStart="20dp"
@@ -71,7 +71,7 @@
         android:layout_marginTop="8dp"
         android:text="CREATE TOURNAMENT"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextMultiLine" />
+        app:layout_constraintTop_toBottomOf="@+id/players_txt" />
 
     <Button
         android:id="@+id/btn_update_tournament"
@@ -81,6 +81,6 @@
         android:layout_marginEnd="44dp"
         android:text="UPDATE TOURNAMENT"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextMultiLine" />
+        app:layout_constraintTop_toBottomOf="@+id/players_txt" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

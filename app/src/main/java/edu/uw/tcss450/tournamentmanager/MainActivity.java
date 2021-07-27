@@ -3,16 +3,15 @@ package edu.uw.tcss450.tournamentmanager;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentTransaction;
 
-import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
-import android.view.Menu;
 import android.view.MenuItem;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
+import edu.uw.tcss450.tournamentmanager.Data.DataFragment;
+import edu.uw.tcss450.tournamentmanager.PastTournament.NewTournamentFragment;
+import edu.uw.tcss450.tournamentmanager.PastTournament.PastTournamentFragment;
 import edu.uw.tcss450.tournamentmanager.databinding.ActivityMainBinding;
 
 public class MainActivity extends AppCompatActivity {

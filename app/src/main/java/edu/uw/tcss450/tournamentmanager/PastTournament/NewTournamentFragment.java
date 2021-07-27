@@ -1,8 +1,5 @@
-package edu.uw.tcss450.tournamentmanager;
+package edu.uw.tcss450.tournamentmanager.PastTournament;
 
-import android.content.Context;
-import android.database.DataSetObserver;
-import android.graphics.Color;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -13,17 +10,15 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
-import android.widget.SpinnerAdapter;
-import android.widget.TextView;
 import android.widget.Toast;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
+
+import edu.uw.tcss450.tournamentmanager.R;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -35,6 +30,7 @@ public class NewTournamentFragment extends Fragment {
     private Spinner tournamentCategory;
     private Button addTournament;
     private Button updateTournament;
+    private EditText playersText;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -53,6 +49,10 @@ public class NewTournamentFragment extends Fragment {
         tournamentCategory = (Spinner) rootView.findViewById(R.id.category);
         addTournament = rootView.findViewById(R.id.btn_create_tournament);
         updateTournament = rootView.findViewById(R.id.btn_update_tournament);
+        playersText = (EditText) rootView.findViewById(R.id.players_txt);
+
+
+
 
         addTournament.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -67,10 +67,17 @@ public class NewTournamentFragment extends Fragment {
         updateTournament.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                String text = playersText.getText().toString().trim();
+                String players[] = text.split("\\r?\\n");
+                String winner = players[0];
+                String finalist = players[1];
+
                 MyDatabaseHelper myDB = new MyDatabaseHelper(getActivity());
-                myDB.updateTournament(Integer.valueOf(tournamentYear.getText().toString().trim()),
+                                myDB.updateTournament(Integer.valueOf(tournamentYear.getText().toString().trim()),
                                         tournamentTitle.getText().toString().trim(),
-                                        tournamentCategory.getSelectedItem().toString().trim());
+                                        tournamentCategory.getSelectedItem().toString().trim(),
+                                        winner,
+                                        finalist);
             }
         });
 

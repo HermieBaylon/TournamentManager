@@ -1,4 +1,4 @@
-package edu.uw.tcss450.tournamentmanager;
+package edu.uw.tcss450.tournamentmanager.PastTournament;
 
 
 import android.content.Context;
@@ -11,6 +11,8 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
+
+import edu.uw.tcss450.tournamentmanager.R;
 
 public class TournamentRVAdapter extends RecyclerView.Adapter<TournamentRVAdapter.MyViewHolder> {
 

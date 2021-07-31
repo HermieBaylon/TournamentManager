@@ -18,6 +18,7 @@ import android.widget.Toast;
 
 import java.util.ArrayList;
 
+import edu.uw.tcss450.tournamentmanager.Player;
 import edu.uw.tcss450.tournamentmanager.R;
 
 /**
@@ -67,10 +68,16 @@ public class NewTournamentFragment extends Fragment {
         updateTournament.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Tournament tournament = new Tournament();
                 String text = playersText.getText().toString().trim();
                 String players[] = text.split("\\r?\\n");
-                String winner = players[0];
-                String finalist = players[1];
+                String p1[] = players[0].split(" ");
+                String p2[] = players[1].split(" ");
+                Player player1 = new Player(p1[0], Integer.parseInt(p1[1]));
+                Player player2 = new Player(p2[0], Integer.parseInt(p2[1]));
+                tournament.play(player1, player2);
+                String winner = tournament.getWinner()+" [" +tournament.getWinnerScore()+"]";
+                String finalist = tournament.getFinalist()+" ["+tournament.getFinalistScore()+"]";
 
                 MyDatabaseHelper myDB = new MyDatabaseHelper(getActivity());
                                 myDB.updateTournament(Integer.valueOf(tournamentYear.getText().toString().trim()),

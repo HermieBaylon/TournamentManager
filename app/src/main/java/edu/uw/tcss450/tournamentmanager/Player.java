@@ -10,12 +10,12 @@ public class Player {
     private int playerPower;
 
     public Player(String name) {
-        name = playerName;
+        playerName = name;
     }
 
     public Player(String name, int power) {
-        name = playerName;
-        power = playerPower;
+        playerName = name;
+        playerPower = power;
     }
 
     public int getPower() {
@@ -23,6 +23,10 @@ public class Player {
     }
 
     public String toString() {
+        return playerName;
+    }
+
+    public String getPlayerName() {
         return playerName;
     }
 

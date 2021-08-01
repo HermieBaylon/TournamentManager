@@ -24,6 +24,7 @@ public class PastTournamentFragment extends Fragment {
     RecyclerView recyclerView;
     MyDatabaseHelper myDB;
     ArrayList<String> tYearList, tNameList, tCategoryList;
+    ArrayList<String> tWinnerList, tFinalistList;
     TournamentRVAdapter tournamentRVAdapter;
 
     @Override
@@ -41,10 +42,12 @@ public class PastTournamentFragment extends Fragment {
         tYearList = new ArrayList<>();
         tNameList = new ArrayList<>();
         tCategoryList = new ArrayList<>();
+        tWinnerList = new ArrayList<>();
+        tFinalistList = new ArrayList<>();
 
         storeDataInArrays();
 
-        tournamentRVAdapter = new TournamentRVAdapter(getActivity(), tYearList, tNameList, tCategoryList);
+        tournamentRVAdapter = new TournamentRVAdapter(getActivity(), tYearList, tNameList, tCategoryList, tWinnerList, tFinalistList);
         recyclerView.setAdapter(tournamentRVAdapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
 
@@ -60,6 +63,8 @@ public class PastTournamentFragment extends Fragment {
                 tYearList.add(cursor.getString(0));
                 tNameList.add(cursor.getString(1));
                 tCategoryList.add(cursor.getString(2));
+                tWinnerList.add(cursor.getString(3));
+                tFinalistList.add(cursor.getString(4));
             }
         }
     }

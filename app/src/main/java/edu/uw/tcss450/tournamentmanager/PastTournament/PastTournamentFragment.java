@@ -22,7 +22,7 @@ import edu.uw.tcss450.tournamentmanager.R;
  */
 public class PastTournamentFragment extends Fragment {
     RecyclerView recyclerView;
-    MyDatabaseHelper myDB;
+    TournamentSummaryDatabase myDB;
     ArrayList<String> tYearList, tNameList, tCategoryList;
     ArrayList<String> tWinnerList, tFinalistList;
     ArrayList<String> tResultList;
@@ -39,7 +39,7 @@ public class PastTournamentFragment extends Fragment {
         // Inflate the layout for this fragment
         View rootView = inflater.inflate(R.layout.fragment_past_tournament, container, false);
         recyclerView = rootView.findViewById(R.id.rv_Tournaments);
-        myDB = new MyDatabaseHelper(getActivity());
+        myDB = new TournamentSummaryDatabase(getActivity());
         tYearList = new ArrayList<>();
         tNameList = new ArrayList<>();
         tCategoryList = new ArrayList<>();

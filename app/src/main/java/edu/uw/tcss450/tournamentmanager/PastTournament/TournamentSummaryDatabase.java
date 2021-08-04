@@ -10,7 +10,7 @@ import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 
-public class MyDatabaseHelper extends SQLiteOpenHelper {
+public class TournamentSummaryDatabase extends SQLiteOpenHelper {
     private Context context;
     private static final String DATABASE_NAME = "Tour2.db";
     private static final int DATABASE_VERSION = 1;
@@ -25,7 +25,7 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
     private static final String TOURNAMENT_WINNER = "tournament_winner";
     private static final String TOURNAMENT_FINALIST = "tournament_finalist";
 
-    public MyDatabaseHelper(@Nullable Context context) {
+    public TournamentSummaryDatabase(@Nullable Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
         this.context = context;
     }

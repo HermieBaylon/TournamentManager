@@ -6,7 +6,6 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,7 +13,6 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
-import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -58,7 +56,7 @@ public class NewTournamentFragment extends Fragment {
         addTournament.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                MyDatabaseHelper myDB = new MyDatabaseHelper(getActivity());
+                TournamentSummaryDatabase myDB = new TournamentSummaryDatabase(getActivity());
                 myDB.addTournament(Integer.valueOf(tournamentYear.getText().toString().trim()),
                                    tournamentTitle.getText().toString().trim(),
                                    tournamentCategory.getSelectedItem().toString().trim());
@@ -79,7 +77,7 @@ public class NewTournamentFragment extends Fragment {
                 String winner = tournament.getWinner()+" [" +tournament.getWinnerScore()+"]";
                 String finalist = tournament.getFinalist()+" ["+tournament.getFinalistScore()+"]";
 
-                MyDatabaseHelper myDB = new MyDatabaseHelper(getActivity());
+                TournamentSummaryDatabase myDB = new TournamentSummaryDatabase(getActivity());
                                 myDB.updateTournament(Integer.valueOf(tournamentYear.getText().toString().trim()),
                                         tournamentTitle.getText().toString().trim(),
                                         tournamentCategory.getSelectedItem().toString().trim(),

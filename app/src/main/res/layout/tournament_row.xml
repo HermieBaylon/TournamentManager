@@ -13,6 +13,7 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:id="@+id/tournament_row_constraint_layout"
             android:padding="12dp">
 
             <TextView
@@ -68,6 +69,14 @@
                 android:text="TextView"
                 app:layout_constraintStart_toEndOf="@+id/tournament_finalist_lbl"
                 app:layout_constraintTop_toBottomOf="@+id/tournament_winner_txt" />
+
+            <TextView
+                android:id="@+id/tournament_result"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                app:layout_constraintTop_toBottomOf="@+id/tournament_year_txt"
+                tools:layout_editor_absoluteX="106dp" />
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>

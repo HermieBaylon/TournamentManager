@@ -19,14 +19,17 @@ public class TournamentRVAdapter extends RecyclerView.Adapter<TournamentRVAdapte
     private Context context;
     private ArrayList tYearList, tNameList, tCategoryList;
     private ArrayList tWinnerList, tFinalistList;
+    private ArrayList tResultList;
 
-    TournamentRVAdapter(Context context, ArrayList tYearList, ArrayList tNameList, ArrayList tCategoryList, ArrayList tWinnerList, ArrayList tFinalistList) {
+    TournamentRVAdapter(Context context, ArrayList tYearList, ArrayList tNameList,
+                        ArrayList tCategoryList, ArrayList tWinnerList, ArrayList tFinalistList) {
         this.context = context;
         this.tYearList = tYearList;
         this.tNameList = tNameList;
         this.tCategoryList = tCategoryList;
         this.tWinnerList = tWinnerList;
         this.tFinalistList = tFinalistList;
+        //this.tResultList = tResultList;
     }
 
     @NonNull
@@ -37,12 +40,14 @@ public class TournamentRVAdapter extends RecyclerView.Adapter<TournamentRVAdapte
         return new MyViewHolder(view);
     }
 
+    // Used to recycle data when scrolling
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
         holder.tYearText.setText(String.valueOf(tYearList.get(position)));
         holder.tNameText.setText(String.valueOf(tNameList.get(position)));
         holder.tWinnerText.setText(String.valueOf(tWinnerList.get(position)));
         holder.tFinalistText.setText(String.valueOf(tFinalistList.get(position)));
+//        holder.tResultText.setText(String.valueOf(tResultList.get(position)));
     }
 
     @Override
@@ -54,12 +59,15 @@ public class TournamentRVAdapter extends RecyclerView.Adapter<TournamentRVAdapte
 
         TextView tYearText, tNameText, tCategoryText;
         TextView tWinnerText, tFinalistText;
+        TextView tResultText;
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
             tYearText = itemView.findViewById(R.id.tournament_year_txt);
             tNameText = itemView.findViewById(R.id.tournament_title_txt);
             tWinnerText = itemView.findViewById(R.id.tournament_winner_txt);
             tFinalistText = itemView.findViewById(R.id.tournament_finalist_txt);
+        //    tResultText = itemView.findViewById(R.id.tournament_result);
+
         }
     }
 }
